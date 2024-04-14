@@ -26,6 +26,4 @@ export default function World(props) {
     )
 }
 
-
-// time till next sp
-// world name
+// a bunch of this code could be written way better but for such a small app I dont think its a huge deal

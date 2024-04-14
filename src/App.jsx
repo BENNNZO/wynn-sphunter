@@ -7,7 +7,8 @@ import Footer from './components/Footer';
 
 function App() {
 	const [data, setData] = useState(null)
-	const [note, setNote] = useState(true)
+	const [note, setNote] = useState(false)
+	const [update, setUpdate] = useState(0)
 
 	function msToTimeLeft(duration) {
         let seconds = Math.floor((duration / 1000) % 60)
@@ -20,24 +21,26 @@ function App() {
     }
 
 	useEffect(() => {
-		// axios.get('https://athena.wynntils.com/cache/get/serverList')
-		// .then(res => {
-		// 	// probably is a better way to do this but this is the best I could do
-		// 	let sortedData = [...Object.entries(res.data["servers"])].sort(function (a, b) {
-		// 		let keyA = new Date(msToTimeLeft(a[1]['firstSeen']))
-		// 		let keyB = new Date(msToTimeLeft(b[1]['firstSeen']))
-				
-		// 		if (keyA < keyB) return -1
-		// 		if (keyA > keyB) return 1
-				
-		// 		return 0
-		// 	});
+		setData(null)
 
-		// 	console.log(res.data["servers"])
-		// 	console.log(sortedData)
-		// 	setData(sortedData)
-		// })
-	}, [])
+		axios.get('https://athena.wynntils.com/cache/get/serverList')
+		.then(res => {
+			// probably is a better way to do this but this is the best I could do
+			let sortedData = [...Object.entries(res.data["servers"])].sort(function (a, b) {
+				let keyA = new Date(msToTimeLeft(a[1]['firstSeen']))
+				let keyB = new Date(msToTimeLeft(b[1]['firstSeen']))
+				
+				if (keyA < keyB) return -1
+				if (keyA > keyB) return 1
+				
+				return 0
+			});
+
+			console.log(res.data["servers"])
+			console.log(sortedData)
+			setData(sortedData)
+		})
+	}, [update])
 
 	return (
 		<div className='bg-zinc-950 min-h-screen text-white px-10 relative overflow-hidden'>
@@ -60,7 +63,7 @@ function App() {
 					)
 				)}
 			</section>
-			<span className='block w-2/5 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent m-auto' />
+			<span className='block w-full md:w-4/5 lg:w-2/5 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent m-auto' />
 			{
 				note ? (
 					<div className='note bg-zinc-800 px-3 py-2 rounded-md border border-zinc-600 shadow-lg w-9/12 max-w-2xl'>
@@ -78,7 +81,7 @@ function App() {
 					null
 				)
 			}
-			<Footer />
+			<Footer update={update} setUpdate={(x) => setUpdate(x)} loaded={!data} />
 		</div>
 	);
 }
