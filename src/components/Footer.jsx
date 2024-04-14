@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function Footer() {
     return (
-        <section className='flex flex-row gap-2 justify-center py-6'>
+        <section className='flex flex-row gap-2 justify-center py-4'>
             <a href="https://github.com/BENNNZO/wynn-sphunter" target='_blank'>
                 <img 
                     src={process.env.PUBLIC_URL + "/svg/github.svg"} 

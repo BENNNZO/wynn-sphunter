@@ -42,8 +42,8 @@ function App() {
 	return (
 		<div className='bg-zinc-950 min-h-screen text-white px-10 relative overflow-hidden'>
 			<Hero />
-			<span className='block w-2/5 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent m-auto' />
-			<section className='flex flex-col gap-2 items-center col-span-2 max-w-3xl mx-auto py-4 md:py-10'>
+			<span className='block w-full md:w-4/5 lg:w-2/5 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent m-auto' />
+			<section className='flex flex-col gap-2 items-center col-span-2 max-w-3xl mx-auto py-2 md:py-4'>
 				{!data ? (
 					<>
 						<p className='text-red-400 font-bold animate-pulse'>This Can Take Up To 1 Minute To Load</p>
