@@ -7,7 +7,7 @@ import Footer from './components/Footer';
 
 function App() {
 	const [data, setData] = useState(null)
-	const [note, setNote] = useState(false)
+	const [note, setNote] = useState(true)
 	const [update, setUpdate] = useState(0)
 
 	function msToTimeLeft(duration) {
