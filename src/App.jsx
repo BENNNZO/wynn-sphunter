@@ -19,23 +19,23 @@ function App() {
     }
 
 	useEffect(() => {
-		// axios.get('https://athena.wynntils.com/cache/get/serverList')
-		// .then(res => {
-		// 	// probably is a better way to do this but this is the best I could do
-		// 	let sortedData = [...Object.entries(res.data["servers"])].sort(function (a, b) {
-		// 		let keyA = new Date(msToTimeLeft(a[1]['firstSeen']))
-		// 		let keyB = new Date(msToTimeLeft(b[1]['firstSeen']))
+		axios.get('https://athena.wynntils.com/cache/get/serverList')
+		.then(res => {
+			// probably is a better way to do this but this is the best I could do
+			let sortedData = [...Object.entries(res.data["servers"])].sort(function (a, b) {
+				let keyA = new Date(msToTimeLeft(a[1]['firstSeen']))
+				let keyB = new Date(msToTimeLeft(b[1]['firstSeen']))
 				
-		// 		if (keyA < keyB) return -1
-		// 		if (keyA > keyB) return 1
+				if (keyA < keyB) return -1
+				if (keyA > keyB) return 1
 				
-		// 		return 0
-		// 	});
+				return 0
+			});
 
-		// 	console.log(res.data["servers"])
-		// 	console.log(sortedData)
-		// 	setData(sortedData)
-		// })
+			console.log(res.data["servers"])
+			console.log(sortedData)
+			setData(sortedData)
+		})
 	}, [])
 
 	return (
