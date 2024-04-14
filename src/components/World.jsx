@@ -31,10 +31,11 @@ export default function World(props) {
     }
 
     return (
-        <section className='w-full sm:h-12 h-16 bg-zinc-900 rounded-sm flex sm:flex-row flex-col sm:justify-between justify-center items-center px-4 hover:bg-zinc-800 duration-150'>
+        <section className='w-full sm:h-12 h-16 bg-zinc-900 rounded-sm flex sm:flex-row flex-col sm:justify-between justify-center items-center px-4 hover:bg-zinc-800 duration-150 shadow-md'>
             <p><span className='opacity-20'>World: </span>{name.replace("WC", "")}</p>
             {/* <p>Up Time:  <span className={`${minsLeftColor} font-bold`}>{msToTime(time)}</span></p> */}
             <p>Next SP: <span className={`${minsLeftColor} font-bold`}>{msToTimeLeft(time)}</span></p>
+            <p>Next SP: <span className={`${minsLeftColor} font-bold`}>{props.other}</span></p>
         </section>
     )
 }
