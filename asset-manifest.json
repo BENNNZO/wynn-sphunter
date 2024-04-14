@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/wynn-sphunter/static/css/main.a5470b1b.css",
-    "main.js": "/wynn-sphunter/static/js/main.35f45623.js",
+    "main.css": "/wynn-sphunter/static/css/main.621565cd.css",
+    "main.js": "/wynn-sphunter/static/js/main.80ad675c.js",
     "index.html": "/wynn-sphunter/index.html",
-    "main.a5470b1b.css.map": "/wynn-sphunter/static/css/main.a5470b1b.css.map",
-    "main.35f45623.js.map": "/wynn-sphunter/static/js/main.35f45623.js.map"
+    "main.621565cd.css.map": "/wynn-sphunter/static/css/main.621565cd.css.map",
+    "main.80ad675c.js.map": "/wynn-sphunter/static/js/main.80ad675c.js.map"
   },
   "entrypoints": [
-    "static/css/main.a5470b1b.css",
-    "static/js/main.35f45623.js"
+    "static/css/main.621565cd.css",
+    "static/js/main.80ad675c.js"
   ]
 }
