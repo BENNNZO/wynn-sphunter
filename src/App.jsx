@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 
 import Hero from './components/Hero';
+import World from './components/World';
 
 function App() {
 	const [worlds, setWorlds] = useState({
@@ -1486,24 +1487,24 @@ function App() {
 	}, [])
 
 	return (
-		<div className='bg-zinc-950 min-h-screen text-white'>
+		<div className='bg-zinc-950 min-h-screen text-white px-10'>
 			<Hero />
 			<span className='block w-4/5 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent m-auto'/>
-			<div className='pt-10 grid grid-cols-3 gap-2 max-w-7xl mx-auto'>
-				<section className='flex flex-col gap-2 items-center col-span-2'>
+			{/* <div className='pt-10 grid grid-cols-3 gap-2 max-w-7xl mx-auto'> */}
+				<section className='flex flex-col gap-2 items-center col-span-2 max-w-3xl mx-auto pt-4 md:pt-10'>
 					{!worlds ? (
 						[...Array(10)].map(e =>
-							<span className='h-12 w-full bg-white/10 rounded-sm animate-pulse'>
+							<span className='h-16 w-full bg-white/10 rounded-sm animate-pulse'>
 
 							</span>
 						)
 					) : (
 						Object.keys(worlds).map((e, i) => 
-							<span>{e}</span>
+							<World name={e} players={worlds[e]['players']} time={worlds[e]['firstSeen']} />
 						)
 					)}
 				</section>
-				{!worlds ? (
+				{/* {!worlds ? (
 					<span className='h-96 bg-white/10 rounded-sm animate-pulse'>
 
 					</span>
@@ -1511,8 +1512,8 @@ function App() {
 					// Object.keys(worlds).map((e, i) => 
 						<span>best route goes here</span>
 					// )
-				)}
-			</div>
+				)} */}
+			{/* </div> */}
 		</div>
 	);
 }
