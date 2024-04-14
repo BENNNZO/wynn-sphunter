@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 
 import Hero from './components/Hero';
 import World from './components/World';
+import Footer from './components/Footer';
 
 function App() {
 	const [data, setData] = useState(null)
@@ -19,23 +20,23 @@ function App() {
     }
 
 	useEffect(() => {
-		axios.get('https://athena.wynntils.com/cache/get/serverList')
-		.then(res => {
-			// probably is a better way to do this but this is the best I could do
-			let sortedData = [...Object.entries(res.data["servers"])].sort(function (a, b) {
-				let keyA = new Date(msToTimeLeft(a[1]['firstSeen']))
-				let keyB = new Date(msToTimeLeft(b[1]['firstSeen']))
+		// axios.get('https://athena.wynntils.com/cache/get/serverList')
+		// .then(res => {
+		// 	// probably is a better way to do this but this is the best I could do
+		// 	let sortedData = [...Object.entries(res.data["servers"])].sort(function (a, b) {
+		// 		let keyA = new Date(msToTimeLeft(a[1]['firstSeen']))
+		// 		let keyB = new Date(msToTimeLeft(b[1]['firstSeen']))
 				
-				if (keyA < keyB) return -1
-				if (keyA > keyB) return 1
+		// 		if (keyA < keyB) return -1
+		// 		if (keyA > keyB) return 1
 				
-				return 0
-			});
+		// 		return 0
+		// 	});
 
-			console.log(res.data["servers"])
-			console.log(sortedData)
-			setData(sortedData)
-		})
+		// 	console.log(res.data["servers"])
+		// 	console.log(sortedData)
+		// 	setData(sortedData)
+		// })
 	}, [])
 
 	return (
@@ -46,7 +47,7 @@ function App() {
 				{!data ? (
 					<>
 						<p className='text-red-400 font-bold animate-pulse'>This Can Take Up To 1 Minute To Load</p>
-						{[...Array(10)].map(e =>
+						{[...Array(20)].map(e =>
 							<span className='w-full sm:h-12 h-16 bg-zinc-900 rounded-sm flex sm:flex-row flex-col sm:justify-between justify-center items-center px-4 hover:bg-zinc-800 duration-150 shadow-md animate-pulse'>
 								<div>World: ...</div>
 								<div>Next SP: ...</div>
@@ -77,6 +78,7 @@ function App() {
 					null
 				)
 			}
+			<Footer />
 		</div>
 	);
 }
